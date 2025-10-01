@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:health_app/util/emoticon_face.dart';
+import 'package:health_app/util/exercise_tile.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage({super.key});
@@ -13,6 +14,12 @@ class _HomePageState extends State<HomePage> {
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: Colors.blue[800],
+      bottomNavigationBar: BottomNavigationBar(
+        items: [
+          BottomNavigationBarItem(icon:  Icon(Icons.home), label: 'Home'),
+          BottomNavigationBarItem(icon:  Icon(Icons.message), label: 'Messages'),
+          BottomNavigationBarItem(icon:  Icon(Icons.person), label: 'Profile'),
+        ],),
       body: SafeArea(
         child: Padding(
           padding: const EdgeInsets.all(25.0),
@@ -168,6 +175,64 @@ class _HomePageState extends State<HomePage> {
               ),
 
               
+              SizedBox(
+                height: 25
+                ),
+              Expanded(
+                child: Container(
+                  padding: EdgeInsets.all(25),
+                  decoration: BoxDecoration(
+                    color: Colors.grey[200],
+                    borderRadius: BorderRadius.circular(30),
+                  ),
+                  child: Center(
+                    child: Column(
+                      children: [
+                        //exercise heading
+                        Row(
+                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                          children: [
+                            Text(
+                              'Exercises',
+                              style: TextStyle(
+                                fontSize: 20,
+                                fontWeight: FontWeight.bold,
+                              ),
+                            ),
+                            Icon(Icons.more_horiz),
+                          ],
+                        ),
+                        SizedBox(height: 20),
+                        //listed of exercises
+                        Expanded(
+                          child: ListView(
+                            children: [
+                              ExerciseTile(
+                                icon: Icons.favorite,
+                                exerciseName: 'Speaking Skills',
+                                numberOfExercises: 16,
+                                color: Colors.red,
+                              ),
+                              ExerciseTile(
+                                icon: Icons.person,
+                                exerciseName: 'Reading Skills',
+                                numberOfExercises: 8,
+                                color: Colors.orange,
+                              ),
+                              ExerciseTile(
+                                icon: Icons.star,
+                                exerciseName: 'Writing Skills',
+                                numberOfExercises: 20,
+                                color: Colors.pink,
+                              ),
+                            ],
+                          ),
+                        ),
+                      ],
+                    ),
+                  ),
+                ),
+              ),
             ],
           ),
         ),
