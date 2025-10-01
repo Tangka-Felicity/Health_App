@@ -34,7 +34,7 @@ class ExerciseTile extends StatelessWidget {
                   child: Container(
                     padding: EdgeInsets.all(16),
                     color: color,
-                    child: Icon(icon.icon, color: Colors.white),
+                    child: Icon(icon, color: Colors.white),
                   ),
                 ),
                 SizedBox(width: 12),
